@@ -3,9 +3,9 @@ package services;
 import daos.MovieDAO;
 import entities.Movie;
 
-public class MovieService {
+public class MovieServices {
 	
-	public MovieService(){
+	public MovieServices(){
 		
 	}
 	

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+	<form-beans type="org.apache.struts.action.ActionFormBean">
+		<form-bean name="CreateMovieForm" type="actionform.CreateMovieForm"/>
+	</form-beans>
+	
+	<action-mappings>
+		<action path="/pages/CreateMovie" type="action.CreateAction" name="CreateMovieForm"
+		scope="request" input="CreateMovie.jsp">
+		<forward name="success" path="/index.jsp"/>
+		<forward name="error" path="/CreateMovie.jsp"/> 
+		</action>
+	</action-mappings>
+
+  <!-- ========== Ressources de definitions de messages =========================== -->
+  <message-resources parameter="resources" />
+
+</struts-config>

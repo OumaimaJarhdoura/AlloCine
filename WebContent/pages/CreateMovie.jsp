@@ -9,8 +9,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<style type="text/css">
-	    <%@include file="WEB-INF/bootstrap/css/bootstrap.css" %>
-	    <%@include file="WEB-INF/bootstrap/css/bootstrap-theme.css" %>
+	    <%@include file="bootstrap/css/bootstrap.css" %>
+	    <%@include file="bootstrap/css/bootstrap-theme.css" %>
 	    .partie
 	    {
 	    	margin-right:1%;
@@ -28,7 +28,7 @@
 <body>
 	<h1><bean:message key="titre.movie.create" /></h1>
 	<html:form action="CreateMovie" styleClass="form-horizontal">
-		<div class="container">
+		<div class="container"/>
 			<div class="row">
 				<div class="col-md-12">
 				<html:errors/>
