@@ -8,21 +8,21 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<style type="text/css">
-	    <%@include file="bootstrap/css/bootstrap.css" %>
-	    <%@include file="bootstrap/css/bootstrap-theme.css" %>
+	    <%@include file="WEB-INF/bootstrap/css/bootstrap.css" %>
+	    <%@include file="WEB-INF/bootstrap/css/bootstrap-theme.css" %>
 	    .center
 	    {
 	    	margin-top:10%;
 	    }
 	</style>
-	<script src="bootstrap/js/jquery.js"></script>
-	<script src="bootstrap/js/bootstrap.js"></script>
+	<script src="WEB-INF/bootstrap/js/jquery.js"></script>
+	<script src="WEB-INF/bootstrap/js/bootstrap.js"></script>
 	<title><bean:message key="site.titre" /></title>
 </head>
 <body>
 	<div class="container-fluid">
-		<html:form action="/Login" styleClass="form-horizontal">
-		<div class="row center">
+		<html:form action="/LoginForm" styleClass="form-horizontal">
+			<div class="row center">
 			<div class="col-md-4 col-md-offset-4">
 				<h1>Bienvenue</h1>
 					<div class="col-md-offset-1">
@@ -37,11 +37,10 @@
 								<bean:message key="login.bouton.connexion" />
 							</html:submit>
 						</div>
-						</html:form>
-						<html:errors />
-					</div>
-				</div>
 			</div>
-
+			</div>
+		</html:form>
+		<html:errors />
+	</div>
 </body>
 </html>
