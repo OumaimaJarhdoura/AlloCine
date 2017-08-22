@@ -42,10 +42,14 @@ public class MovieDAO {
 					return 0;
 				}
 				exitConnection(st);
-				if(cpt == 1)
+				if(cpt == 1){
+					System.out.println("Ok ");
 					return 1;
-				else
+				}
+				else {
+					System.out.println("KO ");
 					return 0;
+				}
 		}
 	}
 	

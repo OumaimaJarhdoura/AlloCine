@@ -10,7 +10,7 @@
 	</form-beans>
 	
 	<action-mappings>
-		<action path="/pages/CreateMovie" type="action.CreateAction" name="CreateMovieForm"
+		<action path="pages/CreateMovie" type="action.CreateAction" name="CreateMovieForm"
 		scope="request" input="CreateMovie.jsp">
 		<forward name="success" path="/index.jsp"/>
 		<forward name="error" path="/CreateMovie.jsp"/> 

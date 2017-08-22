@@ -20,8 +20,11 @@
 	<div class="row center">
 		<div class="col-md-4 col-md-offset-4">
 			<h1><bean:message key = "main.menu" /></h1>
-				<a href="CreateMovie.jsp" class="btn btn-default btn-lg btn-block" role="button">
+				<a href="pages/CreateMovie.jsp" class="btn btn-default btn-lg btn-block" role="button">
 					<bean:message key="main.movie.create" />
+				</a>
+				<a href="pages/SearchMovie.jsp" class="btn btn-default btn-lg btn block" role ="button">
+					<bean:message key="main.menu.update" />
 				</a>
 		</div>
 	</div>

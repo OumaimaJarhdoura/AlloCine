@@ -27,56 +27,28 @@
 </head>
 <body>
 	<h1><bean:message key="titre.movie.create" /></h1>
-	<html:form action="CreateMovie" styleClass="form-horizontal">
-		<div class="container"/>
-			<div class="row">
-				<div class="col-md-12">
-				<html:errors/>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 partie">
-					<h2><bean:message key="movie.create.infobasic" /></h2>
-					<div class="form-group">
-						<label class="control-label"><bean:message key="form.movie.title" /></label>
-						<html:text property="title" styleClass="form-control"/>
-					</div>
-					<div class="form-group">
-						<label class="control-label"><bean:message key="form.movie.genre" /></label>
-						<html:text property="genre" styleClass="form-control"/>
-					</div>
-					<div class="form-group">
-						<label class="control-label"><bean:message key="form.movie.duration" /></label>
-						<html:text property="duration" styleClass="form-control"/>
-					</div>
-					<div class="form-group">
-						<label class="control-label"><bean:message key="form.movie.releasedate" /></label>
-						<html:text property="releasedate" styleClass="form-control"/>
-					</div>
-					<div class="form-group">
-						<label class="control-label"><bean:message key="form.movie.synopsis" /></label>
-						<html:text property="synopsis" styleClass="form-control"/>
-					</div>
-					<div class="form-group">
-						<label class="control-label"><bean:message key="form.movie.cast" /></label>
-						<html:text property="cast" styleClass="form-control"/>
-					</div>
-					<div class="form-group">
-						<label class="control-label"><bean:message key="form.movie.director" /></label>
-						<html:text property="director" styleClass="form-control"/>
-					</div>
-					<div class="form-group">
-						<label class="control-label"><bean:message key="form.movie.nationality" /></label>
-						<html:text property="nationality" styleClass="form-control"/>
-					</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 col-md-offset-4">
-				<button type="submit" class="btn btn-default"><bean:message key="form.movie.button.create" /></button>
-				<button type="reset" class="btn btn-default"><bean:message key="form.movie.button.reset" /></button>
-			</div>
-		</div>		
-	</div>
-	</html:form>
+	<form action ="/src/actionform/CreateMovieForm.java">
+  <div class="form-horizontal">
+    <label for="title"><bean:message key="form.movie.title" /></label>
+    <input type="text" class="form-control" id="text">
+ 	<label for="genre"><bean:message key ="form.movie.genre" /></label>
+ 	<input type="text" class ="form-control" id="genre" >
+ 	<label for ="releasedate"><bean:message key="form.movie.releasedate" /></label>
+ 	<input type="text" class ="form-control" id ="releasedate" >
+ 	<label for ="duration"><bean:message key="form.movie.duration" /></label>
+ 	<input type="text" class="form-control" id="duration" >
+ 	<label for="synopsis"><bean:message key="form.movie.synopsis" /></label>
+ 	<input type="text" class="form-control" id="synopsis">
+ 	<label for="nationality"><bean:message key="form.movie.nationality" /></label>
+ 	<input type="text" class="form-control" id ="nationality">
+ 	<label for="director"><bean:message key ="form.movie.director" /></label>
+ 	<input type="text" class="form-control" id="director">
+ 	<label for="cast"><bean:message key="form.movie.cast" /></label>
+ 	<input type="text" class="form-control" id="cast">
+  </div>
+  <button type="submit" class="btn btn-default"><bean:message key="form.movie.button.create" /></button>
+  <button type="reset"  class="btn btn-default"><bean:message key="form.movie.button.reset" /></button>
+</form>
+	
 </body>
 </html>

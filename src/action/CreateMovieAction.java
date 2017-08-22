@@ -1,6 +1,6 @@
 package action;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest; 
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts.action.Action;
@@ -8,7 +8,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import services.MovieService;
+import services.MovieServices;
 import entities.Movie;
 import actionform.CreateMovieForm;
 
@@ -32,7 +32,7 @@ public class CreateMovieAction  extends Action {
 		
 		Movie mtoCreate = new Movie ("",title,genre,duration,releasedate, synopsis, nationality, director, cast);
 		
-		MovieService m_service = new MovieService();
+		MovieServices m_service = new MovieServices();
 		m_service.createMovie(mtoCreate);
 		
 		return map.findForward("ok");
