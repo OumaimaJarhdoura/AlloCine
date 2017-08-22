@@ -30,12 +30,12 @@ public class CreateMovieAction  extends Action {
 		String cast = formulaire.getCast();
 		
 		
-		Movie mtoCreate = new Movie ("",title,genre,duration,releasedate, synopsis, nationality, director, cast);
+		/*Movie mtoCreate = new Movie ("",title,genre,duration,releasedate, synopsis, nationality, director, cast);
 		
 		MovieServices m_service = new MovieServices();
-		m_service.createMovie(mtoCreate);
+		m_service.createMovie(mtoCreate);*/
 		
-		return map.findForward("ok");
+		return map.findForward("success");
 			}
 
 }

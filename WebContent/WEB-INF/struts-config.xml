@@ -10,11 +10,13 @@
 	</form-beans>
 	
 	<action-mappings>
-		<action path="pages/CreateMovie" type="action.CreateAction" name="CreateMovieForm"
-		scope="request" input="CreateMovie.jsp">
-		<forward name="success" path="/index.jsp"/>
-		<forward name="error" path="/CreateMovie.jsp"/> 
+	
+		<action path="/CreateMovie" type="action.CreateMovieAction" name="CreateMovieForm"
+		scope="request" input="/pages/CreateMovie.jsp">
+		<forward name="success" path="/pages/index.jsp"/>
+		<forward name="error" path="/pages/CreateMovie.jsp"/> 
 		</action>
+		
 	</action-mappings>
 
   <!-- ========== Ressources de definitions de messages =========================== -->

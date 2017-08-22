@@ -27,28 +27,32 @@
 </head>
 <body>
 	<h1><bean:message key="titre.movie.create" /></h1>
-	<form action ="/src/actionform/CreateMovieForm.java">
+	<html:form action ="/CreateMovie">
   <div class="form-horizontal">
+  
+  	
     <label for="title"><bean:message key="form.movie.title" /></label>
-    <input type="text" class="form-control" id="text">
+    <html:text property="title" styleClass="form-control"/>
  	<label for="genre"><bean:message key ="form.movie.genre" /></label>
- 	<input type="text" class ="form-control" id="genre" >
+ 	<html:text property="genre" styleClass="form-control"/>
  	<label for ="releasedate"><bean:message key="form.movie.releasedate" /></label>
- 	<input type="text" class ="form-control" id ="releasedate" >
+ 	<html:text property="releaseDate" styleClass="form-control"/>
  	<label for ="duration"><bean:message key="form.movie.duration" /></label>
- 	<input type="text" class="form-control" id="duration" >
+ 	<html:text property="duration" styleClass="form-control"/>
  	<label for="synopsis"><bean:message key="form.movie.synopsis" /></label>
- 	<input type="text" class="form-control" id="synopsis">
+ 	<html:text property="synopsis" styleClass="form-control"/>
  	<label for="nationality"><bean:message key="form.movie.nationality" /></label>
- 	<input type="text" class="form-control" id ="nationality">
+  	<html:text property="nationality" styleClass="form-control"/>
  	<label for="director"><bean:message key ="form.movie.director" /></label>
- 	<input type="text" class="form-control" id="director">
+ 	<html:text property="director" styleClass="form-control"/>
  	<label for="cast"><bean:message key="form.movie.cast" /></label>
- 	<input type="text" class="form-control" id="cast">
+  	<html:text property="cast" styleClass="form-control"/>
   </div>
-  <button type="submit" class="btn btn-default"><bean:message key="form.movie.button.create" /></button>
+  <html:submit styleClass="btn btn-default">
+		<bean:message key="form.movie.button.create" />
+  </html:submit>
   <button type="reset"  class="btn btn-default"><bean:message key="form.movie.button.reset" /></button>
-</form>
+	</html:form>>
 	
 </body>
 </html>
