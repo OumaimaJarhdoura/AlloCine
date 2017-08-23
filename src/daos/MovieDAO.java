@@ -124,7 +124,8 @@ public class MovieDAO {
 					int m_age = resultat.getInt("Age");
 					
 					Movie movie = new Movie(m_id,m_title, m_genre, m_duration,m_releasedate, m_synopsis,
-							m_language, m_director, m_cast, m_age, m_starts, m_ends, m_link);					moviesFounded.add(movie);
+							m_language, m_director, m_cast, m_age, m_starts, m_ends, m_link);
+							moviesFounded.add(movie);
 				}
 				
 				resultat.close();
@@ -133,7 +134,7 @@ public class MovieDAO {
 			} catch (SQLException e) {
 				System.out.println("Erreur select "+e.getMessage());
 				exitConnection(st);
-				return null;
+				return new ArrayList<Movie>();
 			}		
 		}
 }

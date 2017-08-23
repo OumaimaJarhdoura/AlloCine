@@ -63,7 +63,7 @@
 			</tr>
 			<%! int res = 0;%>
 			<% @SuppressWarnings("unchecked") 
-			ArrayList<Movie> movies = (ArrayList<Movie>) request.getAttribute("moviesFounded");
+			ArrayList<Movie> movies = (ArrayList<Movie>) request.getAttribute("movies");
 			res = 0;
 			if(movies != null)
 			{
