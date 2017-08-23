@@ -10,20 +10,27 @@ public class Movie {
 	private String releaseDate;
 	private String cast;
 	private String director;
-	private String nationality;
+	private String language;
+	private int age;
+	private String starts;
+	private String ends;
+	private String link;
 	
-	public Movie (String id, String title, String genre, String duration, String releasedate, String syno,
-			String nationality, String director, String cast){
-		this.id = id;
+	public Movie (String title, String genre, String duration, String releasedate, String syno,
+			String language, String director, String cast, int age,String starts, String ends, String link){
+	
 		this.title = title;
 		this.genre = genre;
 		this.duration = duration;
 		this.releaseDate = releasedate;
 		this.synopsis = syno;
-		this.nationality = nationality;
+		this.language = language;
 		this.director = director;
 		this.cast = cast;
-		
+		this.age = age;
+		this.starts = starts;
+		this.ends = ends;
+		this.link = link;
 	}
 	
 	
@@ -75,12 +82,20 @@ public class Movie {
 	public void setDirector(String director) {
 		this.director = director;
 	}
-	public String getNationality() {
-		return nationality;
+	public String getLanguage() {
+		return language;
 	}
-	public void setNationality(String nationality) {
-		this.nationality = nationality;
+	public void setLanguage(String language) {
+		this.language = language;
 	}
+	
+	public int getAge(){
+		return age;
+	}
+	public void setAge(int age){
+		this.age = age;
+	}
+	
 	
 	@Override
 	public String toString() {
@@ -88,6 +103,36 @@ public class Movie {
 				+ ", duration=" + duration + ", Released =" + releaseDate + ", Synopsis="
 				+ synopsis + ", Directed by ="
 				+ director + " Cast = " + cast + "]";
+	}
+
+
+	public String getStarts() {
+		return starts;
+	}
+
+
+	public void setStarts(String starts) {
+		this.starts = starts;
+	}
+
+
+	public String getEnds() {
+		return ends;
+	}
+
+
+	public void setEnds(String ends) {
+		this.ends = ends;
+	}
+
+
+	public String getLink() {
+		return link;
+	}
+
+
+	public void setLink(String link) {
+		this.link = link;
 	}
 	
 	

@@ -18,7 +18,11 @@ public class CreateMovieForm extends ActionForm {
 	private String releaseDate;
 	private String cast;
 	private String director;
-	private String nationality;
+	private String language;
+	private int age;
+	private String starts;
+	private String ends;
+	private String link;
 	
 	
 	
@@ -72,11 +76,39 @@ public class CreateMovieForm extends ActionForm {
 		this.releaseDate = releaseDate;
 	}
 	
-	public String getNationality() {
-		return nationality;
+	public String getLanguage() {
+		return language;
 	}
-	public void setNationality(String nationality) {
-		this.nationality = nationality;
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+	
+	public int getAge(){
+		return age;
+	}
+	public void setAge(int age){
+		this.age = age;
+	}
+	
+	public String getStarts(){
+		return starts;
+	}
+	public void setStarts(String starts){
+		this.starts = starts;
+	}
+	
+	public String getEnds(){
+		return ends;
+	}
+	public void setEnds(String ends){
+		this.ends = ends;
+	}
+	
+	public String getLink(){
+		return link;
+	}
+	public void setLink(String link){
+		this.link = link;
 	}
 	
 	@Override
@@ -93,6 +125,16 @@ public class CreateMovieForm extends ActionForm {
 			errors.add("formReleaseDate",new ActionMessage("eroor.form.releasedate"));
 		if(synopsis.equals(""))
 				errors.add("formSynopsis", new ActionMessage("error.form.synopsis"));
+		if(language.equals(""))
+				errors.add("formLanguage", new ActionMessage("error.form.language"));
+		if (cast.equals(""))
+				errors.add("formCast", new ActionMessage("error.form.cast"));
+		if(director.equals(""))
+				errors.add("formDirector", new ActionMessage("error.form.director"));
+		if(starts.equals(""))
+				errors.add("formStarts", new ActionMessage("error.form.starts"));
+		if (ends.equals(""))
+				errors.add("formends", new ActionMessage("error.form.ends"));
 		return errors;
 	}
 	
@@ -101,6 +143,6 @@ public class CreateMovieForm extends ActionForm {
 		return "CreateMovieForm [title=" + title + ", genre="
 				+ genre + ", duration=" + duration + ", Release Date="
 				+ releaseDate + ", Synopsis=" + synopsis + ", directed by="
-				+ director + ", The cast=" + cast + ", nationality=" + nationality + "]";
+				+ director + ", The cast=" + cast + ", language=" + language +", The min age=" + age + "]";
 	}
 }

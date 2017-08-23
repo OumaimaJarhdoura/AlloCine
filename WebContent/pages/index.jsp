@@ -24,7 +24,7 @@
 					<bean:message key="main.movie.create" />
 				</a>
 				<a href="pages/SearchMovie.jsp" class="btn btn-default btn-lg btn block" role ="button">
-					<bean:message key="main.menu.update" />
+					<bean:message key="main.movie.search" />
 				</a>
 		</div>
 	</div>

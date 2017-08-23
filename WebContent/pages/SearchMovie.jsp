@@ -26,15 +26,13 @@
 	<title><bean:message key="titre.site" /></title>
 </head>
 <body>
-	<h1><bean:message key="titre.movie.serch" /></h1>
-		<html:form action="ResearchContact" styleClass="form-horizontal">
+	<h1><bean:message key="titre.movie.search" /></h1>
+		<html:form action="/SearchMovie" styleClass="form-horizontal">
 				<div class="form-group">
-					<label><bean:message key="form.movie.title" /></label>
-					<html:text property="nom" styleClass="form-control"/>
-				</div>
-				<div class="form-group">		
+					<label for="title"><bean:message key="form.movie.title" /></label>
+					<html:text property="title" styleClass="form-control"/>		
 					<html:submit styleClass="btn btn-default">
-						<bean:message key="rechercher.bouton.rechercher" />
+						<bean:message key="form.movie.button.search" />
 					</html:submit>
 				</div>
 			</html:form>

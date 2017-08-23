@@ -7,14 +7,20 @@
 <struts-config>
 	<form-beans type="org.apache.struts.action.ActionFormBean">
 		<form-bean name="CreateMovieForm" type="actionform.CreateMovieForm"/>
+		<form-bean name="SearchMovieForm" type="actionform.SearchMovieForm"/>
 	</form-beans>
 	
 	<action-mappings>
 	
 		<action path="/CreateMovie" type="action.CreateMovieAction" name="CreateMovieForm"
 		scope="request" input="/pages/CreateMovie.jsp">
-		<forward name="success" path="/pages/index.jsp"/>
-		<forward name="error" path="/pages/CreateMovie.jsp"/> 
+		<forward name="success" path="/pages/CreateMovieSucces.jsp"/>
+		<forward name="error" path="/pages/CreateMovieError.jsp"/> 
+		</action>
+		
+		<action path="/SearchMovie" type="action.SearchMovieAction" name="SearchMovieForm"
+		scope ="request" input="/pages/SearchMovie.jsp">
+		<forward name="success" path="/pages/DisplayMovieAdmin.jsp"/>
 		</action>
 		
 	</action-mappings>

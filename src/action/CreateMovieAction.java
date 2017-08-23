@@ -11,7 +11,6 @@ import org.apache.struts.action.ActionMapping;
 import services.MovieServices;
 import entities.Movie;
 import actionform.CreateMovieForm;
-
 public class CreateMovieAction  extends Action {
 	
 			public ActionForward execute(ActionMapping map ,ActionForm form,
@@ -20,22 +19,27 @@ public class CreateMovieAction  extends Action {
 		
 		CreateMovieForm formulaire = (CreateMovieForm) form;
 		
+		
 		String title = formulaire.getTitle();
 		String duration = formulaire.getDuration();
 		String genre = formulaire.getGenre();
 		String releasedate = formulaire.getReleaseDate();
 		String synopsis = formulaire.getSynopsis();
-		String nationality = formulaire.getNationality();
+		String language = formulaire.getLanguage();
 		String director = formulaire.getDirector();
 		String cast = formulaire.getCast();
+		int age= formulaire.getAge();
+		String starts = formulaire.getStarts();
+		String ends = formulaire.getEnds();
+		String link = formulaire.getLink();
 		
 		
-		Movie mtoCreate = new Movie ("",title,genre,duration,releasedate, synopsis, nationality, director, cast);
+		Movie mtoCreate = new Movie (title,genre,duration,releasedate, synopsis, language, director, cast, age, starts, ends, link);
 		
 		MovieServices m_service = new MovieServices();
-		m_service.createMovie(mtoCreate);
-		
-		return map.findForward("success");
+		if (m_service.createMovie(mtoCreate)==1)
+			return map.findForward("success");
+		else return map.findForward("error");
 			}
 
 }
