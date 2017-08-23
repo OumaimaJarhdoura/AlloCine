@@ -23,7 +23,13 @@ public class SearchMovieAction extends Action{
 		MovieServices m = new MovieServices();
 		SearchMovieForm formulaire = (SearchMovieForm) form;
 		ArrayList<Movie> movies = m.searchMovieByTitle(formulaire.getTitle());
-		return map.findForward("success");
+		request.setAttribute("title", formulaire.getTitle());
+		if (movies != null){
+			System.out.println("Ok");
+			return map.findForward("success");}
+		else {
+			System.out.println("KO");
+			return map.findForward("error");}
 			}
 
 }

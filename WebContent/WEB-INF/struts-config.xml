@@ -21,6 +21,7 @@
 		<action path="/SearchMovie" type="action.SearchMovieAction" name="SearchMovieForm"
 		scope ="request" input="/pages/SearchMovie.jsp">
 		<forward name="success" path="/pages/DisplayMovieAdmin.jsp"/>
+		<forward name="error" path="/pages/index.jsp"/>
 		</action>
 		
 	</action-mappings>

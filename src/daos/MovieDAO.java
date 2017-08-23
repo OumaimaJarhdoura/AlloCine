@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 
+import services.MovieServices;
 import entities.Movie;
 
 public class MovieDAO {
@@ -22,6 +23,11 @@ public class MovieDAO {
 	private final String nameBD = "allocinedb";
 	private final String userBD = "root";
 	private final String mdpBD = "root";
+	private HttpServletRequest request;
+	 
+    public void setServletRequest(HttpServletRequest httpServletRequest) {
+        this.request = httpServletRequest;
+    }
 	
 	private Connection connection;
 	
@@ -99,10 +105,11 @@ public class MovieDAO {
 		Statement st = getConnection();
 			ArrayList<Movie> moviesFounded = new ArrayList<Movie>();
 			try {
-				String sql = "SELECT * From movie WHERE Title LIKE'"+title+"'";
+				String sql = "SELECT * From movie WHERE Title ='"+title+"'";
 				ResultSet resultat = st.executeQuery(sql);
 				while(resultat.next())
 				{
+					String m_id = resultat.getString("ID");
 					String m_title = resultat.getString("Title");
 					String m_genre = resultat.getString("Genre");
 					String m_releasedate = resultat.getString("ReleaseDate");
@@ -116,10 +123,10 @@ public class MovieDAO {
 					String m_link = resultat.getString("Link");
 					int m_age = resultat.getInt("Age");
 					
-					Movie movie = new Movie(m_title, m_genre, m_duration,m_releasedate, m_synopsis,
-							m_language, m_director, m_cast, m_age, m_starts, m_ends, m_link);
-					moviesFounded.add(movie);
+					Movie movie = new Movie(m_id,m_title, m_genre, m_duration,m_releasedate, m_synopsis,
+							m_language, m_director, m_cast, m_age, m_starts, m_ends, m_link);					moviesFounded.add(movie);
 				}
+				
 				resultat.close();
 				exitConnection(st);
 				return moviesFounded;
@@ -129,5 +136,4 @@ public class MovieDAO {
 				return null;
 			}		
 		}
-
 }

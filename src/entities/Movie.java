@@ -16,6 +16,23 @@ public class Movie {
 	private String ends;
 	private String link;
 	
+	
+	public Movie (String id, String title, String genre, String duration, String releasedate, String syno,
+			String language, String director, String cast, int age,String starts, String ends, String link){
+		this.id = id;
+		this.title = title;
+		this.genre = genre;
+		this.duration = duration;
+		this.releaseDate = releasedate;
+		this.synopsis = syno;
+		this.language = language;
+		this.director = director;
+		this.cast = cast;
+		this.age = age;
+		this.starts = starts;
+		this.ends = ends;
+		this.link = link;
+	}
 	public Movie (String title, String genre, String duration, String releasedate, String syno,
 			String language, String director, String cast, int age,String starts, String ends, String link){
 	
