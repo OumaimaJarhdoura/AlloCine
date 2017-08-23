@@ -8,6 +8,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import services.FactoryServices;
 import services.MovieServices;
 import entities.Movie;
 import actionform.CreateMovieForm;
@@ -36,7 +37,7 @@ public class CreateMovieAction  extends Action {
 		
 		Movie mtoCreate = new Movie (title,genre,duration,releasedate, synopsis, language, director, cast, age, starts, ends, link);
 		
-		MovieServices m_service = new MovieServices();
+		MovieServices m_service = (MovieServices) FactoryServices.getService("Movie");
 		if (m_service.createMovie(mtoCreate)==1)
 			return map.findForward("success");
 		else return map.findForward("error");

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import daos.MovieDAO;
 import entities.Movie;
 
-public class MovieServices {
+public class MovieServices extends BaseServices {
 	
 	public MovieServices(){
 		

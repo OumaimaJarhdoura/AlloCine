@@ -13,6 +13,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import actionform.SearchMovieForm;
+import services.FactoryServices;
 import services.MovieServices;
 
 public class SearchMovieAction extends Action{
@@ -20,9 +21,9 @@ public class SearchMovieAction extends Action{
 	public ActionForward execute(ActionMapping map ,ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			{
-		MovieServices m = new MovieServices();
+		MovieServices m_service = (MovieServices) FactoryServices.getService("Movie");
 		SearchMovieForm formulaire = (SearchMovieForm) form;
-		ArrayList<Movie> movies = m.searchMovieByTitle(formulaire.getTitle());
+		ArrayList<Movie> movies = m_service.searchMovieByTitle(formulaire.getTitle());
 		if (movies != null){
 			request.setAttribute("movies", movies);
 			System.out.println("Ok");
