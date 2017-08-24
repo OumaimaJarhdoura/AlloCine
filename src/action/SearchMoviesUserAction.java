@@ -23,14 +23,10 @@ public class SearchMoviesUserAction extends Action {
 			HttpServletRequest request, HttpServletResponse response)
 			{
 		MovieServices m_service = (MovieServices) FactoryServices.getService("Movie");
-		SessionServices s_service = (SessionServices) FactoryServices.getService("Session");
 		SearchMoviesUserForm formulaire = (SearchMoviesUserForm) form;
 		ArrayList<Movie> movies = m_service.searchMoviesByCity(formulaire.getCity());
-		ArrayList<Session> sessions = s_service.searchSessionsByCity(formulaire.getCity());
 		if (movies != null){
 			request.setAttribute("movies", movies);
-			if (sessions !=null)
-				request.setAttribute("sessions",sessions);
 			System.out.println("Ok");
 			return map.findForward("success");}
 		else {

@@ -74,7 +74,9 @@
 					<td><%= movie.getCast()%></td>
 					<td><%= movie.getSynopsis()%></td>
 					<td><a href="<%= movie.getLink()%>"><bean:message key="link.ba"/></a></td>
-					<td><button class="btn btn-default" onclick="redirection(this)"><bean:message key="form.session.display" /></button></td>
+					<td><a href="pages/DisplaySessionsByMovie.jsp" class="btn btn-success pull-right btn-fyi">
+						<bean:message key="form.session.display"/></a>
+					</td>
 				</tr>
 				<%
 				

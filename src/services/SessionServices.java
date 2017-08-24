@@ -26,10 +26,6 @@ public class SessionServices implements BaseServices {
 		return _sessionDAO.findAll();
 	}
 	
-	public ArrayList<Session> searchSessionsByCity(String city){
-		SessionDAO _sessionDAO = new SessionDAO();
-		return _sessionDAO.searchByCity(city);
-	}
 	
 	
 
