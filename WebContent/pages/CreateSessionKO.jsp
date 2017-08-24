@@ -8,8 +8,8 @@
 <title><bean:message key="titre.site" /></title>
 </head>
 <body>
-	<h1><bean:message key ="message.creation.session.error" /></h1>
-	<a href="pages/CreateSession.jsp"><bean:message key="message.menu.creation" /></a>
+	<h1><bean:message key ="message.creation.error" /></h1>
+	<a href="pages/CreateMovie.jsp"><bean:message key="message.menu.creation" /></a>
 	<a href ="pages/index.jsp"><bean:message key ="message.menu" /></a>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package daos;
 
-import java.sql.DriverManager;
+import java.sql.DriverManager; 
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,7 +12,6 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
 import entities.Movie;
-import entities.ProjectionRoom;
 import entities.Theatre;
 
 public class TheatreDAO {
@@ -65,14 +65,13 @@ public class TheatreDAO {
 	public ArrayList<Theatre> search(String city) {
 		Statement st = getConnection();
 			ArrayList<Theatre> theatreFounded = new ArrayList<Theatre>();
-			ArrayList<ProjectionRoom> rooms = new ArrayList<ProjectionRoom>();
 			String sql, sql1;
 			try {
 				if (city.equals("")){
-					sql ="SELECT * FROM ProjectionRoom pr, Theatre t WHERE t_ID=pr_TheatreID";
+					sql ="SELECT * FROM  Theatre ";
 				}
 				else {
-					sql ="SELECT * FROM ProjectionRoom pr, Theatre t WHERE t_ID=pr_TheatreID AND City ='"+city+"'";
+					sql ="SELECT * FROM Theatre WHERE City ='"+city+"'";
 				
 				}
 				ResultSet resultat = st.executeQuery(sql);
@@ -82,13 +81,10 @@ public class TheatreDAO {
 					String t_name = resultat.getString("Name");
 					String t_city = resultat.getString("City");
 					Long t_zipcode = resultat.getLong("ZIPCode");
-					Long pr_id = resultat.getLong("ID");
-					boolean pr_occupation = resultat.getBoolean("Occupation");
 					
 					
-					rooms.add(new ProjectionRoom(pr_id,pr_occupation));
 					
-					Theatre theatre = new Theatre(t_id,t_name,t_city,t_zipcode,rooms);
+					Theatre theatre = new Theatre(t_id,t_name,t_city,t_zipcode);
 					
 					theatreFounded.add(theatre);
 				}
@@ -133,11 +129,10 @@ public class TheatreDAO {
 	public ArrayList<Theatre> findAll() {
 		Statement st = getConnection();
 			ArrayList<Theatre> theatreFounded = new ArrayList<Theatre>();
-			ArrayList<ProjectionRoom> rooms = new ArrayList<ProjectionRoom>();
-			String sql, sql1;
+			String sql1;
 			try {
 				
-				sql1 ="SELECT * FROM projectionroom pr, theatre t WHERE t.ID =pr.TheatreID GROUP BY t.City";
+				sql1 ="SELECT * FROM theatre GROUP BY t.City";
 			
 				
 				ResultSet resultat1 = st.executeQuery(sql1);
@@ -148,14 +143,8 @@ public class TheatreDAO {
 					String t_name = resultat1.getString("Name");
 					String t_city = resultat1.getString("City");
 					Long t_zipcode = resultat1.getLong("ZIPCode");
-					//Long pr_id = resultat1.getLong("ID");
-					//boolean pr_occupation = resultat1.getBoolean("Occupation");
 					
-					
-					//rooms.add(new ProjectionRoom(pr_id,pr_occupation));
-					rooms.add(new ProjectionRoom(12L,false));
-					
-					Theatre theatre = new Theatre(t_id,t_name,t_city,t_zipcode,rooms);
+					Theatre theatre = new Theatre(t_id,t_name,t_city,t_zipcode);
 					
 					theatreFounded.add(theatre);
 					

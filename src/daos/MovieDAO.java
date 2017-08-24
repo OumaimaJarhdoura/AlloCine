@@ -109,7 +109,7 @@ public class MovieDAO {
 			ResultSet resultat = st.executeQuery(sql);
 			while(resultat.next())
 			{
-				String m_id = resultat.getString("ID");
+				//String m_id = resultat.getString("ID");
 				String m_title = resultat.getString("Title");
 				String m_genre = resultat.getString("Genre");
 				String m_releasedate = resultat.getString("ReleaseDate");
@@ -123,7 +123,7 @@ public class MovieDAO {
 				String m_link = resultat.getString("Link");
 				int m_age = resultat.getInt("Age");
 				
-				moviefounded = new Movie(m_id,m_title, m_genre, m_duration,m_releasedate, m_synopsis,
+				moviefounded = new Movie(id,m_title, m_genre, m_duration,m_releasedate, m_synopsis,
 						m_language, m_director, m_cast, m_age, m_starts, m_ends, m_link);
 			}
 			resultat.close();
