@@ -16,7 +16,10 @@ public class Movie {
 	private String ends;
 	private String link;
 	
-	
+	public Movie (String id, String title){
+		this.id= id;
+		this.title = title;
+	}
 	public Movie (String id, String title, String genre, String duration, String releasedate, String syno,
 			String language, String director, String cast, int age,String starts, String ends, String link){
 		this.id = id;

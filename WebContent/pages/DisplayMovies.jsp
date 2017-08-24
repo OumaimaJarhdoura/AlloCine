@@ -50,7 +50,6 @@
 
 <table class="table table-active">
 			<tr>
-				<th><bean:message key="movie.id"/></th>
 				<th><bean:message key="movie.title"/></th>
 				<th><bean:message key="movie.genre" /></th>
 				<th><bean:message key="movie.duration" /></th>
@@ -59,6 +58,7 @@
 				<th><bean:message key="movie.director" /></th>
 				<th><bean:message key="movie.cast" /></th>
 				<th><bean:message key="movie.synopsis" /></th>
+				<th><bean:message key="movie.link" /> </th>
 				<th></th>
 			</tr>
 			
@@ -74,7 +74,6 @@
 					{
 					%>
 				<tr>
-					<td><%= movie.getId()%></td>
 					<td><%= movie.getTitle()%></td>
 					<td><%= movie.getGenre()%></td>
 					<td><%= movie.getDuration()%></td>
@@ -83,7 +82,8 @@
 					<td><%= movie.getDirector() %></td>
 					<td><%= movie.getCast()%></td>
 					<td><%= movie.getSynopsis()%></td>
-					<td><button class="btn btn-default" onclick="redirection(this)"><bean:message key="form.movie.button.update" /></button></td>
+					<td><a href="<%= movie.getLink()%>"><bean:message key="link.ba"/></a></td>
+					<td><button class="btn btn-default" onclick="redirection(this)"><bean:message key="form.session.display" /></button></td>
 				</tr>
 				<%
 				

@@ -23,8 +23,11 @@
 				<a href="pages/CreateMovie.jsp" class="btn btn-default btn-lg btn-block" role="button">
 					<bean:message key="main.movie.create" />
 				</a>
-				<a href="pages/SearchMovie.jsp" class="btn btn-default btn-lg btn block" role ="button">
+				<a href="pages/SearchMovie.jsp" class="btn btn-default btn-lg btn-block" role ="button">
 					<bean:message key="main.movie.search" />
+				</a>
+				<a href="CreateSession.jsp" class="btn btn-default btn-lg btn-block" role="button">
+					<bean:message key="main.session.create" />
 				</a>
 		</div>
 	</div>

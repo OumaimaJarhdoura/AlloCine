@@ -20,5 +20,12 @@ public class MovieServices extends BaseServices {
 		MovieDAO _movieDAO = new MovieDAO();
 		return _movieDAO.search(title);
 	}
+	
+	public ArrayList<Movie> findAllMovies() {
+		MovieDAO _movieDAO = new MovieDAO();
+		return _movieDAO.findAll();
+	}
+	
+	
 
 }

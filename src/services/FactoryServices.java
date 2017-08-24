@@ -10,6 +10,7 @@ public class FactoryServices extends BaseServices {
 		switch (classeType) {
 		case "Movie":
 			return new MovieServices();
+	
 		
 		default:
 			throw new IllegalArgumentException("Mauvaise classe");

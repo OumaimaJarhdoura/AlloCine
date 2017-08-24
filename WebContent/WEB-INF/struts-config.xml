@@ -6,11 +6,20 @@
 
 <struts-config>
 	<form-beans type="org.apache.struts.action.ActionFormBean">
+		<form-bean name="LoginForm" type="actionform.LoginForm"/>
 		<form-bean name="CreateMovieForm" type="actionform.CreateMovieForm"/>
 		<form-bean name="SearchMovieForm" type="actionform.SearchMovieForm"/>
+		<form-bean name="SearchMovieUserForm" type="actionform.SearchMovieUserForm"/>
+		<form-bean name="CreateSessionForm" type="actionform.CreateSessionForm" />
 	</form-beans>
 	
 	<action-mappings>
+	
+		<action path="/Login" type="action.LoginAction" name="LoginForm"
+		scope="request" input="/pages/Login.jsp">
+		<forward name="success" path="/pages/index.jsp"/>
+		<forward name="error" path="/pages/Login.jsp" />
+		</action>
 	
 		<action path="/CreateMovie" type="action.CreateMovieAction" name="CreateMovieForm"
 		scope="request" input="/pages/CreateMovie.jsp">
@@ -22,6 +31,17 @@
 		scope ="request" input="/pages/SearchMovie.jsp">
 		<forward name="success" path="/pages/DisplayMovieAdmin.jsp"/>
 		<forward name="error" path="/pages/index.jsp"/>
+		</action>
+		
+		<action path="/SearchMovieUser" type="action.SearchMovieUserAction" name="SearchMovieUserForm"
+		scope="request" input="/pages/SearchMovieUser.jsp">
+		<forward name="success" path="/pages/DisplayMovies.jsp"/>
+		<forward name="error" path="/pages/main.jsp"/>
+		</action>
+		<action path="/CreateSession"  type="action.CreateSessionAction" name="CreatreSessionForm"
+		scope ="request" input="/pages/CreateSession.jsp">
+		<forward name="succes" path="/pages/CreateSessionOk.jsp"/>
+		<forward name="error" path="/pages/CreateSessionKO.jsp" />
 		</action>
 		
 	</action-mappings>

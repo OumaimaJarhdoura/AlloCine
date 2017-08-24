@@ -7,7 +7,7 @@
             
   <display-name>AlloCine</display-name>
   <welcome-file-list>
-		<welcome-file>/pages/index.jsp</welcome-file>
+		<welcome-file>/pages/main.jsp</welcome-file>
 	</welcome-file-list>
 
   <servlet>
