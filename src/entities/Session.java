@@ -4,23 +4,33 @@ package entities;
 public class Session {
 	
 	private Long id;
-	private ProjectionRoom projectionroom;
+	private Theatre theatre;
 	private Movie movie;
 	private String begindate;
 
 	public Session(){
 		
 	}
-	
-	public Session(Long id, ProjectionRoom room, Movie movie, String begindate){
+	public Session(Long id, Movie movie, Theatre theatre, String begindate){
 		this.id = id;
-		this.projectionroom = room;
+		this.movie = movie;
+		this.theatre = theatre;
+		this.begindate = begindate;
+	}
+	
+	public Session(Movie movie, Theatre theatre, String begindate){
+		this.movie = movie;
+		this.theatre = theatre;
+		this.begindate = begindate;
+	}
+	
+	public Session(Long id, Movie movie, String begindate){
+		this.id = id;
 		this.movie = movie;
 		this.begindate = begindate;
 	}
 	
-	public Session (ProjectionRoom room, Movie movie, String begindate){
-		this.projectionroom = room;
+	public Session (Movie movie, String begindate){
 		this.movie = movie;
 		this.begindate = begindate;
 	}
@@ -45,11 +55,12 @@ public class Session {
 	public void setBegindate(String begindate) {
 		this.begindate = begindate;
 	}
-	public ProjectionRoom getProjectionroom() {
-		return projectionroom;
+
+	public Theatre getTheatre() {
+		return theatre;
 	}
-	public void setProjectionroom(ProjectionRoom projectionroom) {
-		this.projectionroom = projectionroom;
+	public void setTheatre(Theatre theatre) {
+		this.theatre = theatre;
 	}
 	
 	

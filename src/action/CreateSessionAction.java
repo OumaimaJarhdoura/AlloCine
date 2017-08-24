@@ -8,11 +8,15 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import daos.MovieDAO;
+import daos.TheatreDAO;
 import services.FactoryServices;
 import services.MovieServices;
+import services.SessionServices;
 import entities.Movie;
 import entities.ProjectionRoom;
 import entities.Session;
+import entities.Theatre;
 import actionform.CreateMovieForm;
 import actionform.CreateSessionForm;
 public class CreateSessionAction  extends Action {
@@ -24,17 +28,24 @@ public class CreateSessionAction  extends Action {
 		CreateSessionForm formulaire = (CreateSessionForm) form;
 		
 		
-		String movieTitle = formulaire.getMovieid();
-		String roomID = formulaire.getRoomID();
-		String begin = formulaire.getBegindate();
+		String movieId = formulaire.getMovieid();
+		String theatreID = formulaire.getTheatreid();
+		String begindate = formulaire.getBegindate();
 		
-		//Session stoCreate = new Session(room,movie,begin);
 		
-		//SessionServices s_services = (SessionServices) FactoryServices.getService("Session");
-		//if (s_services.createSession(stoCreate)==1)
-			//return map.findForward("success");
-		//else return map.findForward("error");
-		return null;
+			MovieDAO _movieDAO = new MovieDAO();
+			TheatreDAO _theatreDAO = new TheatreDAO();
+			Movie movie= _movieDAO.searchById(movieId);
+			//TODO : Comparer date de sortie et la date begin
+			Theatre theatre = _theatreDAO.searchById(theatreID);	
+		
+		Session stoCreate = new Session(movie,theatre,begindate);
+		
+		SessionServices s_services = (SessionServices) FactoryServices.getService("Session");
+		if (s_services.createSession(stoCreate)==1)
+			return map.findForward("success");
+		else return map.findForward("error");
+		
 			}
 
 }

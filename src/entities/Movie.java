@@ -54,6 +54,8 @@ public class Movie {
 	}
 	
 	
+	public Movie() {
+	}
 	public String getId() {
 		return id;
 	}

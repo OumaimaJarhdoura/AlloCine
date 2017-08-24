@@ -1,23 +1,27 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Theatre {
 	
 	private Long id;
+	private String name;
 	private String city;
 	private Long zipcode;
-	private ProjectionRoom [] rooms;
 	
 	public Theatre(){
 		
 	}
 	
-	public Theatre(Long id, String city, Long zip, ProjectionRoom[] pr){
+	public Theatre(Long id, String name, String city, Long zip){
 		this.setId(id);
+		this.setName(name);
 		this.setCity(city);
 		this.setZipcode(zip);
-		this.rooms = pr;
-	}
 
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -42,12 +46,14 @@ public class Theatre {
 		this.zipcode = zipcode;
 	}
 
-	public ProjectionRoom [] getRooms() {
-		return rooms;
+	
+
+	public String getName() {
+		return name;
 	}
 
-	public void setRooms(ProjectionRoom [] rooms) {
-		this.rooms = rooms;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
