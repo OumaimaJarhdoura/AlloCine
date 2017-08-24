@@ -38,7 +38,8 @@
 		<forward name="success" path="/pages/DisplayMovies.jsp"/>
 		<forward name="error" path="/pages/main.jsp"/>
 		</action>
-		<action path="/CreateSession"  type="action.CreateSessionAction" name="CreatreSessionForm"
+		
+		<action path="/CreateSession"  type="action.CreateSessionAction" name="CreateSessionForm"
 		scope ="request" input="/pages/CreateSession.jsp">
 		<forward name="succes" path="/pages/CreateSessionOk.jsp"/>
 		<forward name="error" path="/pages/CreateSessionKO.jsp" />

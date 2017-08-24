@@ -13,7 +13,7 @@ import org.apache.struts.action.ActionMessage;
 public class CreateSessionForm  extends ActionForm {
 	
 	//private String id;
-	private String movieTitle;
+	private String movieid;
 	private String roomID;
 	private String begindate;
 	
@@ -22,7 +22,7 @@ public class CreateSessionForm  extends ActionForm {
 		ActionErrors errors = new ActionErrors();
 		if(begindate.equals(""))
 			errors.add("formdate", new ActionMessage("error.form.begindate"));		
-		if(movieTitle.equals(""))
+		if(movieid.equals(""))
 			errors.add("formDuration", new ActionMessage("error.form.movieid"));
 		if(roomID.equals(""))
 				errors.add("formGenre", new ActionMessage("error.form.roomid"));
@@ -31,7 +31,7 @@ public class CreateSessionForm  extends ActionForm {
 	
 	@Override
 	public String toString() {
-		return "CreateSession [Movie title=" + movieTitle + ", projection room ID="
+		return "CreateSession [Movie title=" + movieid + ", projection room ID="
 				+ roomID + ", Begins =" + begindate + "]";
 	}
 
@@ -45,8 +45,8 @@ public class CreateSessionForm  extends ActionForm {
 		this.begindate = begindate;
 	}
 
-	public String getMovieTitle() {
-		return this.movieTitle;
+	public String getMovieid() {
+		return this.movieid;
 
 	}
 

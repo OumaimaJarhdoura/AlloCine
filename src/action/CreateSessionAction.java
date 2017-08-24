@@ -24,7 +24,7 @@ public class CreateSessionAction  extends Action {
 		CreateSessionForm formulaire = (CreateSessionForm) form;
 		
 		
-		String movieTitle = formulaire.getMovieTitle();
+		String movieTitle = formulaire.getMovieid();
 		String roomID = formulaire.getRoomID();
 		String begin = formulaire.getBegindate();
 		
