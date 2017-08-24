@@ -22,6 +22,12 @@ public class Theatre {
 
 	}
 	
+	public Theatre(String name, String city, Long zip){
+		this.setName(name);
+		this.setCity(city);
+		this.setZipcode(zip);
+
+	}
 	public Long getId() {
 		return id;
 	}

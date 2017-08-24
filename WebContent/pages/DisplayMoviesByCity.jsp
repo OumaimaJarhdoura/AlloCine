@@ -1,3 +1,4 @@
+<%@page import="entities.Session"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	<%@ page import="java.util.ArrayList, java.util.Iterator, entities.Movie"%>
@@ -74,16 +75,17 @@
 					<td><%= movie.getCast()%></td>
 					<td><%= movie.getSynopsis()%></td>
 					<td><a href="<%= movie.getLink()%>"><bean:message key="link.ba"/></a></td>
-					<td><button class="btn btn-default" onclick="redirection(this)"><bean:message key="form.session.display" /></button></td>
+					<td><a href="displayMovieAllInformation.jsp?movieid=<%=_session.getMovie().getId()%>" class="btn btn-success pull-right btn-fyi">
+						<bean:message key="form.movie.button.plus"/></a></td>
+				
 				</tr>
 				<%
 				
 					}	
 				}
 			}
-			%>
-			
-			
+			%>			
 </table>			
+		
 </body>
 </html>

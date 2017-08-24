@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import daos.TheatreDAO;
 import entities.Theatre;
 
-public class TheatreServices extends BaseServices{
+public class TheatreServices implements BaseServices{
 
 
 	

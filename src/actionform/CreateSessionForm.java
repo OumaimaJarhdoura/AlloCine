@@ -4,14 +4,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
 import daos.SessionDAO;
 
 
-
-
-@SuppressWarnings("serial")
 public class CreateSessionForm  extends ActionForm {
 	
 	//private String id;
@@ -19,7 +17,8 @@ public class CreateSessionForm  extends ActionForm {
 	private String theatreid;
 	private String begindate;
 	
-	public ActionErrors validate(ActionErrors map, HttpServletRequest request)
+	@Override	
+	public ActionErrors validate(ActionMapping map, HttpServletRequest request)
 	{
 		ActionErrors errors = new ActionErrors();
 		if(begindate.equals(""))
@@ -38,6 +37,10 @@ public class CreateSessionForm  extends ActionForm {
 	}
 
 	
+
+	public void setMovieid(String movieid) {
+		this.movieid = movieid;
+	}
 
 	public String getBegindate() {
 		return begindate;

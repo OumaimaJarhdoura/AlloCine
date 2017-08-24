@@ -29,6 +29,9 @@
 				<a href="pages/CreateSession.jsp" class="btn btn-default btn-lg btn-block" role="button">
 					<bean:message key="main.session.create" />
 				</a>
+				<a href="pages/SearchSession.jsp" class="btn btn-default btn-lg btn-block" role="button">
+				<bean:message key="main.session.search"/>
+				</a>
 		</div>
 	</div>
 </body>

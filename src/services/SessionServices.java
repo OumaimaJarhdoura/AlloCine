@@ -1,12 +1,11 @@
 package services;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 
 import daos.SessionDAO;
-import entities.Movie;
 import entities.Session;
 
-public class SessionServices extends BaseServices {
+public class SessionServices implements BaseServices {
 	
 	public SessionServices(){
 		
@@ -17,14 +16,19 @@ public class SessionServices extends BaseServices {
 		return _sessionDAO.create(toCreate);
 	}
 
-	public ArrayList<Session> searchSessionByMovie(Movie movie) {
+	public ArrayList<Session> searchSessionByMovie(Long movieid) {
 		SessionDAO _sessionDAO = new SessionDAO();
-		return _sessionDAO.search(movie);
+		return _sessionDAO.search(movieid);
 	}
 	
 	public ArrayList<Session> findAllSessions() {
 		SessionDAO _sessionDAO = new SessionDAO();
 		return _sessionDAO.findAll();
+	}
+	
+	public ArrayList<Session> searchSessionsByCity(String city){
+		SessionDAO _sessionDAO = new SessionDAO();
+		return _sessionDAO.searchByCity(city);
 	}
 	
 	

@@ -132,7 +132,7 @@ public class TheatreDAO {
 			String sql1;
 			try {
 				
-				sql1 ="SELECT * FROM theatre GROUP BY t.City";
+				sql1 ="SELECT * FROM theatre GROUP BY Name";
 			
 				
 				ResultSet resultat1 = st.executeQuery(sql1);

@@ -1,6 +1,6 @@
 package action;
 
-import javax.servlet.http.HttpServletRequest;   
+import javax.servlet.http.HttpServletRequest;    
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts.action.Action;
@@ -11,12 +11,10 @@ import org.apache.struts.action.ActionMapping;
 import daos.MovieDAO;
 import daos.TheatreDAO;
 import services.FactoryServices;
-import services.MovieServices;
 import services.SessionServices;
 import entities.Movie;
 import entities.Session;
 import entities.Theatre;
-import actionform.CreateMovieForm;
 import actionform.CreateSessionForm;
 
 public class CreateSessionAction  extends Action {

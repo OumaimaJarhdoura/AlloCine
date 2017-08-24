@@ -1,6 +1,6 @@
 package daos;
 
-import java.sql.DriverManager;
+import java.sql.DriverManager; 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,9 +22,6 @@ public class SessionDAO {
 	private final String mdpBD = "root";
 	private HttpServletRequest request;
 	 
-    public void setServletRequest(HttpServletRequest httpServletRequest) {
-        this.request = httpServletRequest;
-    }
 	
 	private Connection connection;
 	
@@ -64,7 +61,48 @@ public class SessionDAO {
 	
 	
 	public ArrayList<Session> findAll() {
-		return new ArrayList<Session>();
+		Statement st = getConnection();
+		ArrayList<Session> sessionsFounded = new ArrayList<Session>();
+		String sql;
+		try {
+			sql = "SELECT * From session s, movie m, theatre t WHERE m.ID = s.MovieID AND t.ID = s.RoomID";
+			ResultSet resultat = st.executeQuery(sql);
+			while(resultat.next())
+			{
+				//Long s_id = resultat.getLong("IDsession");
+				String m_id = resultat.getString("ID");
+				String m_title = resultat.getString("Title");
+				String m_genre = resultat.getString("Genre");
+				String m_releasedate = resultat.getString("ReleaseDate");
+				String m_duration = resultat.getString("Duration");
+				String m_synopsis = resultat.getString("Synopsis");
+				String m_language = resultat.getString("Language");
+				String m_director = resultat.getString("Director");
+				String m_cast = resultat.getString("Cast");
+				String m_starts = resultat.getString("ProjectionStarts");
+				String m_ends = resultat.getString("ProjectionEnds");
+				String m_link = resultat.getString("Link");
+				int m_age = resultat.getInt("Age");
+				String t_name = resultat.getString("Name");
+				String t_city = resultat.getString("City");
+				Long t_zipcode = resultat.getLong ("ZIPCode");
+				String s_date = resultat.getString("Begin");
+				
+				Movie movie = new Movie(m_id,m_title, m_genre, m_duration,m_releasedate, m_synopsis,
+						m_language, m_director, m_cast, m_age, m_starts, m_ends, m_link);
+				Theatre theatre = new Theatre(t_name,t_city,t_zipcode);
+				Session session = new Session (movie,theatre,s_date);
+						sessionsFounded.add(session);
+			}
+			
+			resultat.close();
+			exitConnection(st);
+			return sessionsFounded;
+		} catch (SQLException e) {
+			System.out.println("Erreur select "+e.getMessage());
+			exitConnection(st);
+			return new ArrayList<Session>();
+		}		
 		}
 
 
@@ -77,7 +115,7 @@ public class SessionDAO {
 		{
 			Statement st = getConnection();
 			String sql = "Insert into session(ID,MovieID,RoomID,Begin,End)"
-						+ "values('0','"+session.getMovie().getId()+"','"+session.getTheatre().getId()+"','"+session.getBegindate()
+						+ "values('0',"+Integer.parseInt( session.getMovie().getId())+","+session.getTheatre().getId()+",'"+session.getBegindate()
 						+"','"+session.getBegindate()+"')";
 				int cpt;
 				try {
@@ -101,9 +139,106 @@ public class SessionDAO {
 	}
 
 
-	public ArrayList<Session> search(Movie movie) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Session> search(Long movieid) {
+		Statement st = getConnection();
+		ArrayList<Session> sessionsFounded = new ArrayList<Session>();
+		String sql;
+		try {
+			sql = "SELECT * From session s, movie m, theatre t WHERE m.ID ='"+ movieid+"' AND m.ID = s.MovieID AND t.ID = s.RoomID";
+			ResultSet resultat = st.executeQuery(sql);
+			while(resultat.next())
+			{
+				Long s_id = resultat.getLong("IDsession");
+				String m_title = resultat.getString("Title");
+				String m_genre = resultat.getString("Genre");
+				String m_releasedate = resultat.getString("ReleaseDate");
+				String m_duration = resultat.getString("Duration");
+				String m_synopsis = resultat.getString("Synopsis");
+				String m_language = resultat.getString("Language");
+				String m_director = resultat.getString("Director");
+				String m_cast = resultat.getString("Cast");
+				String m_starts = resultat.getString("ProjectionStarts");
+				String m_ends = resultat.getString("ProjectionEnds");
+				String m_link = resultat.getString("Link");
+				int m_age = resultat.getInt("Age");
+				String t_name = resultat.getString("Name");
+				String t_city = resultat.getString("City");
+				Long t_zipcode = resultat.getLong ("ZIPCode");
+				String s_date = resultat.getString("Begin");
+				
+				Movie movie = new Movie(m_title, m_genre, m_duration,m_releasedate, m_synopsis,
+						m_language, m_director, m_cast, m_age, m_starts, m_ends, m_link);
+				Theatre theatre = new Theatre(t_name,t_city,t_zipcode);
+				Session session = new Session (s_id,movie,theatre,s_date);
+						sessionsFounded.add(session);
+			}
+			
+			resultat.close();
+			exitConnection(st);
+			return sessionsFounded;
+		} catch (SQLException e) {
+			System.out.println("Erreur select "+e.getMessage());
+			exitConnection(st);
+			return new ArrayList<Session>();
+		}		
+	}
+	
+	public ArrayList<Session> searchByCity (String city){
+		Statement st = getConnection();
+		ArrayList<Session> sessionsFounded = new ArrayList<Session>();
+		String sql;
+		try {
+		
+			sql = "SELECT * From movie theatre t, session s WHERE  s.RoomID = t.ID AND t.City ='"+city+"'";
+			ResultSet resultat = st.executeQuery(sql);
+			while(resultat.next())
+			{
+				Long s_id = resultat.getLong("IDsession");
+				String m_id = resultat.getString("ID");
+				String m_title = resultat.getString("Title");
+				String m_genre = resultat.getString("Genre");
+				String m_releasedate = resultat.getString("ReleaseDate");
+				String m_duration = resultat.getString("Duration");
+				String m_synopsis = resultat.getString("Synopsis");
+				String m_language = resultat.getString("Language");
+				String m_director = resultat.getString("Director");
+				String m_cast = resultat.getString("Cast");
+				String m_starts = resultat.getString("ProjectionStarts");
+				String m_ends = resultat.getString("ProjectionEnds");
+				String m_link = resultat.getString("Link");
+				int m_age = resultat.getInt("Age");
+				String t_name = resultat.getString("Name");
+				String t_city = resultat.getString("City");
+				Long t_zipcode = resultat.getLong ("ZIPCode");
+				String s_date = resultat.getString("Begin");
+				
+				Movie movie = new Movie(m_id,m_title, m_genre, m_duration,m_releasedate, m_synopsis,
+						m_language, m_director, m_cast, m_age, m_starts, m_ends, m_link);
+				Theatre theatre = new Theatre(t_name,t_city,t_zipcode);
+				Session session = new Session (s_id,movie,theatre,s_date);
+						sessionsFounded.add(session);
+			}
+			
+			resultat.close();
+			exitConnection(st);
+			return sessionsFounded;
+		} catch (SQLException e) {
+			System.out.println("Erreur select "+e.getMessage());
+			exitConnection(st);
+			return new ArrayList<Session>();
+		}		
+	
+	}
+
+	
+	
+	public HttpServletRequest getRequest() {
+		return request;
+	}
+
+
+	public void setRequest(HttpServletRequest request) {
+		this.request = request;
 	}
 
 

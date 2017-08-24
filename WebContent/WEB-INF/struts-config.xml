@@ -11,6 +11,8 @@
 		<form-bean name="SearchMovieForm" type="actionform.SearchMovieForm"/>
 		<form-bean name="SearchMovieUserForm" type="actionform.SearchMovieUserForm"/>
 		<form-bean name="CreateSessionForm" type="actionform.CreateSessionForm" />
+		<form-bean name="SearchSessionForm" type="actionform.SearchSessionForm" />
+		<form-bean name="SearchMoviesUserForm" type="actionform.SearchMoviesUserForm"/>
 	</form-beans>
 	
 	<action-mappings>
@@ -41,9 +43,22 @@
 		
 		<action path="/CreateSession"  type="action.CreateSessionAction" name="CreateSessionForm"
 		scope ="request" input="/pages/CreateSession.jsp">
-		<forward name="succes" path="/pages/CreateSessionOk.jsp"/>
+		<forward name="success" path="/pages/CreateSessionOk.jsp"/>
 		<forward name="error" path="/pages/CreateSessionKO.jsp" />
 		</action>
+		
+		<action path="/SearchSession"  type="action.SearchSessionAction" name="SearchSessionForm"
+		scope ="request" input="/SearchSession.jsp">
+		<forward name="success" path="/pages/DisplaySessionByMovieAdmin.jsp"/>
+		<forward name="error" path="/pages/main.jsp" />
+		</action>
+		
+		<action path="/SearchMovieByCity" type="action.SearchMoviesUserAction" name="SearchMoviesUserForm"
+		scope="request" input="/SearchMovieByCity.jsp">
+		<forward name="success" path="/pages/DisplayMoviesByCity.jsp"/>
+		<forward name="error" path="/pages/main.jsp" />
+		</action>
+		
 		
 	</action-mappings>
 

@@ -109,7 +109,7 @@ public class MovieDAO {
 			ResultSet resultat = st.executeQuery(sql);
 			while(resultat.next())
 			{
-				//String m_id = resultat.getString("ID");
+				String m_id = resultat.getString("ID");
 				String m_title = resultat.getString("Title");
 				String m_genre = resultat.getString("Genre");
 				String m_releasedate = resultat.getString("ReleaseDate");
@@ -123,11 +123,12 @@ public class MovieDAO {
 				String m_link = resultat.getString("Link");
 				int m_age = resultat.getInt("Age");
 				
-				moviefounded = new Movie(id,m_title, m_genre, m_duration,m_releasedate, m_synopsis,
+				moviefounded = new Movie(m_id,m_title, m_genre, m_duration,m_releasedate, m_synopsis,
 						m_language, m_director, m_cast, m_age, m_starts, m_ends, m_link);
 			}
 			resultat.close();
 			exitConnection(st);
+			System.out.println(moviefounded.toString());
 			return moviefounded;
 		} catch (SQLException e) {
 			System.out.println("Erreur select "+e.getMessage());
@@ -177,6 +178,49 @@ public class MovieDAO {
 				return new ArrayList<Movie>();
 			}		
 		}
+	
+	public ArrayList<Movie> findByCity(String city) {
+		Statement st = getConnection();
+			ArrayList<Movie> moviesFounded = new ArrayList<Movie>();
+			String sql;
+			try {
+				if (city.equals(""))
+					sql = "SELECT * From movie";
+				else 
+					sql = "SELECT * From movie m, theatre t, session s WHERE m.ID = s.MovieID AND"
+							+ " s.RoomID = t.ID AND t.City ='"+city+"'";
+				ResultSet resultat = st.executeQuery(sql);
+				while(resultat.next())
+				{
+					String m_id = resultat.getString("ID");
+					String m_title = resultat.getString("Title");
+					String m_genre = resultat.getString("Genre");
+					String m_releasedate = resultat.getString("ReleaseDate");
+					String m_duration = resultat.getString("Duration");
+					String m_synopsis = resultat.getString("Synopsis");
+					String m_language = resultat.getString("Language");
+					String m_director = resultat.getString("Director");
+					String m_cast = resultat.getString("Cast");
+					String m_starts = resultat.getString("ProjectionStarts");
+					String m_ends = resultat.getString("ProjectionEnds");
+					String m_link = resultat.getString("Link");
+					int m_age = resultat.getInt("Age");
+					
+					Movie movie = new Movie(m_id,m_title, m_genre, m_duration,m_releasedate, m_synopsis,
+							m_language, m_director, m_cast, m_age, m_starts, m_ends, m_link);
+							moviesFounded.add(movie);
+				}
+				
+				resultat.close();
+				exitConnection(st);
+				return moviesFounded;
+			} catch (SQLException e) {
+				System.out.println("Erreur select "+e.getMessage());
+				exitConnection(st);
+				return new ArrayList<Movie>();
+			}		
+		}
+	
 	
 	public ArrayList<Movie> findAll() {
 		Statement st = getConnection();

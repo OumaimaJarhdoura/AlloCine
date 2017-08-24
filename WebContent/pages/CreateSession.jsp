@@ -48,12 +48,13 @@
 				Movie movie = (Movie) it.next();
 				if(movie != null)
 				{String affich = movie.getId()+ ' ' + movie.getTitle();
+				String ID = movie.getId();
 		%>
 
 			
 					
 	
-				<html:option value="<%=movie.getId()%>"> <%=affich%> </html:option>
+				<html:option value="<%=ID%>"> <%=affich%> </html:option>
 				<%
 					}
 					}}

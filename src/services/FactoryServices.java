@@ -1,6 +1,6 @@
 package services;
 
-public class FactoryServices extends BaseServices {
+public class FactoryServices implements BaseServices {
 
 	private FactoryServices(){
 		

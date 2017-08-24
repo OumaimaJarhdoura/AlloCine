@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import daos.MovieDAO;
 import entities.Movie;
 
-public class MovieServices extends BaseServices {
+public class MovieServices implements BaseServices {
 	
 	public MovieServices(){
 		
@@ -24,6 +24,11 @@ public class MovieServices extends BaseServices {
 	public ArrayList<Movie> findAllMovies() {
 		MovieDAO _movieDAO = new MovieDAO();
 		return _movieDAO.findAll();
+	}
+	public ArrayList<Movie> searchMoviesByCity(String city)
+	{
+		MovieDAO _movieDAO = new MovieDAO();
+		return _movieDAO.findByCity(city);
 	}
 	
 	
