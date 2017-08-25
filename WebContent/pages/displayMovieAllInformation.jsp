@@ -24,7 +24,6 @@
 </head>
 <body>
 
-	<a href="pages/Login.jsp" class="btn btn-success pull-right btn-fyi"><bean:message key="connection.admin"/></a>
 	
 	<H1><bean:message key ="titre.result.movie"/></H1>
 

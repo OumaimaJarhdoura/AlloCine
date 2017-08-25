@@ -47,7 +47,7 @@
 	
 	</head>
 <body>
-<H1><bean:message key ="titre.result.searchSession"/></H1>
+<H1><bean:message key ="display.session.admin"/></H1>
 
 <table class="table table-active">
 			<tr>
@@ -78,6 +78,9 @@
 					<td><%= _session.getBegindate()%></td>
 					
 					<td><button class="btn btn-default" onclick="redirection(this)"><bean:message key="form.search.button.update" /></button></td>
+					<td><a href="pages/DeleteSession.jsp?sessionid=<%=_session.getId()%>" class="btn btn-danger pull-right btn-fyi">
+						<bean:message key="button.delete.session"/></a>
+					</td>
 				</tr>
 				<%
 				

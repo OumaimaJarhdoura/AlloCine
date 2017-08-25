@@ -9,6 +9,6 @@
 </head>
 <body>
 	<h1><bean:message key ="message.creation.session.done" /></h1>
-	<a href="pages/index.jsp"><bean:message key="message.menu" /></a>
+	<a href="index.jsp"><bean:message key="message.menu" /></a>
 </body>
 </html>

@@ -69,7 +69,7 @@ public class SessionDAO {
 			ResultSet resultat = st.executeQuery(sql);
 			while(resultat.next())
 			{
-				//Long s_id = resultat.getLong("IDsession");
+				Long s_id = resultat.getLong("IDsession");
 				String m_id = resultat.getString("ID");
 				String m_title = resultat.getString("Title");
 				String m_genre = resultat.getString("Genre");
@@ -91,7 +91,7 @@ public class SessionDAO {
 				Movie movie = new Movie(m_id,m_title, m_genre, m_duration,m_releasedate, m_synopsis,
 						m_language, m_director, m_cast, m_age, m_starts, m_ends, m_link);
 				Theatre theatre = new Theatre(t_name,t_city,t_zipcode);
-				Session session = new Session (movie,theatre,s_date);
+				Session session = new Session (s_id,movie,theatre,s_date);
 						sessionsFounded.add(session);
 			}
 			
@@ -114,14 +114,13 @@ public class SessionDAO {
 		else
 		{
 			Statement st = getConnection();
-			String sql = "Insert into session(ID,MovieID,RoomID,Begin,End)"
-						+ "values('0',"+Integer.parseInt( session.getMovie().getId())+","+session.getTheatre().getId()+",'"+session.getBegindate()
-						+"','"+session.getBegindate()+"')";
+			String sql = "Insert into session(IDsession,MovieID,RoomID,Begin)"
+						+ "values('0','"+Integer.parseInt( session.getMovie().getId())+"','"+session.getTheatre().getId()+"','"+session.getBegindate()+"')";
 				int cpt;
 				try {
 					cpt = st.executeUpdate(sql);
 				} catch (SQLException e) {
-					System.out.println("Error creating  the movie : "+ sql+" "+ e.getMessage());
+					System.out.println("Error creating  the session : "+ sql+" "+ e.getMessage());
 				
 					exitConnection(st);
 					return 0;
@@ -184,7 +183,29 @@ public class SessionDAO {
 	}
 	
 	
-	
+	public boolean delete(Long id) {
+		Statement st = getConnection();
+			String sql = "Delete from session WHERE IDsession = '"+id+"'";
+				int cpt;
+				try {
+					cpt = st.executeUpdate(sql);
+				} catch (SQLException e) {
+					System.out.println("Error deleting the session : "+ sql+" "+ e.getMessage());
+				
+					exitConnection(st);
+					return true;
+				}
+				exitConnection(st);
+				if(cpt == 1){
+					System.out.println("Ok ");
+					return true;
+				}
+				else {
+					System.out.println("KO ");
+					return false;
+				}
+		}
+
 	
 	public HttpServletRequest getRequest() {
 		return request;
@@ -194,6 +215,9 @@ public class SessionDAO {
 	public void setRequest(HttpServletRequest request) {
 		this.request = request;
 	}
+
+
+	
 
 
 	

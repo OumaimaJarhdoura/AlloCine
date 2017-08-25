@@ -75,7 +75,6 @@
 					<td><%= movie.getCast()%></td>
 					<td><%= movie.getSynopsis()%></td>
 					<td><a href="<%= movie.getLink()%>"><bean:message key="link.ba"/></a></td>
-						<bean:message key="form.movie.button.plus"/></a></td>
 				
 				</tr>
 				<%

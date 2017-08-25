@@ -25,6 +25,11 @@ public class SessionServices implements BaseServices {
 		SessionDAO _sessionDAO = new SessionDAO();
 		return _sessionDAO.findAll();
 	}
+
+	public boolean delete(Long sessionid) {
+		SessionDAO _sessionDAO = new SessionDAO();
+		return _sessionDAO.delete(sessionid);
+	}
 	
 	
 	

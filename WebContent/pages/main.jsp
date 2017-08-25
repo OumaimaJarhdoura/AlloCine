@@ -77,7 +77,7 @@
 					<td><%=movie.getGenre()%></td>
 					<td><%=movie.getDirector()%></td>
 					<td><%=movie.getCast() %></td>
-					<td><
+					<td>
 				</tr>
 
 				<%

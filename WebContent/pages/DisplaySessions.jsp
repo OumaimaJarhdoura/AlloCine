@@ -28,19 +28,7 @@
 </head>
 <body>
 
-	<a href="pages/Login.jsp" class="btn btn-success pull-right btn-fyi"><bean:message key="connection.admin"/></a>
-	
-	<html:form action="/SearchMovieUser" styleClass="form-horizontal">
-				<div class="form-horizontal">
-					<label for="title"><bean:message key="form.movie.title" /></label>
-					<html:text property="title" styleClass="form-sm"/>		
-					<html:submit styleClass="btn btn-default">
-						<bean:message key="form.movie.button.search" />
-					</html:submit>
-				</div>
-			</html:form>
-	
-							
+	<H1><bean:message key="display.session.user"/></H1>
 	<div class="container">
 		<%
 		SessionServices sessionservices = (SessionServices) FactoryServices.getService("Session");
@@ -69,6 +57,7 @@
 				<%
 					for (Session _session : sessions) {
 						Movie movie = _session.getMovie();
+					System.out.println(_session.getId());
 				%>
 				<tr>
 					<td><%=_session.getMovie().getId()%></td>
@@ -77,10 +66,11 @@
 					<td><%=_session.getTheatre().getName()%></td>
 					<td><%= _session.getTheatre().getCity() %></td>
 					<td><%=_session.getBegindate() %></td>
+					
 					<td><a href="displayMovieAllInformation.jsp?movieid=<%=_session.getMovie().getId()%>" class="btn btn-success pull-right btn-fyi">
 						<bean:message key="form.movie.button.plus"/></a></td>
+					
 				</tr>
-
 				<%
 					}
 					}
