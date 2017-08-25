@@ -11,6 +11,11 @@ public class Session {
 	public Session(){
 		
 	}
+	
+	public Session(Long id, String begindate){
+		this.id = id;
+		this.begindate = begindate;
+	}
 	public Session(Long id, Movie movie, Theatre theatre, String begindate){
 		this.id = id;
 		this.movie = movie;

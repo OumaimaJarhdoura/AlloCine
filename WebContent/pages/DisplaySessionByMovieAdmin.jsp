@@ -77,7 +77,9 @@
 					<td><%= _session.getTheatre().getCity()%></td>
 					<td><%= _session.getBegindate()%></td>
 					
-					<td><button class="btn btn-default" onclick="redirection(this)"><bean:message key="form.search.button.update" /></button></td>
+					<td><a href="pages/UpdateSession.jsp?sessionid=<%=_session.getId()%>" class="btn btn-warning pull-right btn-fyi">
+						<bean:message key="form.search.button.update"/></a>
+					</td>
 					<td><a href="pages/DeleteSession.jsp?sessionid=<%=_session.getId()%>" class="btn btn-danger pull-right btn-fyi">
 						<bean:message key="button.delete.session"/></a>
 					</td>

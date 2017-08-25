@@ -32,9 +32,6 @@
 				<a href="pages/SearchSession.jsp" class="btn btn-default btn-lg btn-block" role="button">
 				<bean:message key="main.session.search"/>
 				</a>
-				<a href="pages/DeleteSession.jsp" class="btn btn-default btn-lg btn-block" role="button">
-				<bean:message key="main.session.delete"/>
-				</a>
 		</div>
 	</div>
 </body>

@@ -183,6 +183,25 @@ public class SessionDAO {
 	}
 	
 	
+	public Session searchById(Long id) {
+		Statement st = getConnection();
+		Session sessionFounded = new Session();
+		String sql;
+		try {
+			sql = "SELECT * From session WHERE ID ='"+ id+"";
+			ResultSet resultat = st.executeQuery(sql);
+			sessionFounded = new Session(id,((Session) resultat).getBegindate());
+			resultat.close();
+			exitConnection(st);
+			return sessionFounded;
+		} catch (SQLException e) {
+			System.out.println("Erreur select "+e.getMessage());
+			exitConnection(st);
+			return new Session();
+		}		
+	}
+	
+	
 	public boolean delete(Long id) {
 		Statement st = getConnection();
 			String sql = "Delete from session WHERE IDsession = '"+id+"'";
