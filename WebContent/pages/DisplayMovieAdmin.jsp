@@ -84,6 +84,9 @@
 					<td><%= movie.getCast()%></td>
 					<td><%= movie.getSynopsis()%></td>
 					<td><button class="btn btn-default" onclick="redirection(this)"><bean:message key="form.movie.button.update" /></button></td>
+					<td><a href="pages/DeleteMovie.jsp?movieid=<%=movie.getId()%>" class="btn btn-danger pull-right btn-fyi">
+						<bean:message key="button.delete.movie"/></a>
+					</td>
 				</tr>
 				<%
 				

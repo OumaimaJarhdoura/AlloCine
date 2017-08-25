@@ -260,5 +260,34 @@ public class MovieDAO {
 			}		
 		}
 	
+	public boolean delete(String id){
+		Statement st = getConnection();
+		SessionDAO _sessionDAO = new SessionDAO();
+		if(_sessionDAO.deleteSessions(id))
+		{
+			String sql = "Delete from movie WHERE ID = '"+id+"'";
+				int cpt;
+				try {
+					cpt = st.executeUpdate(sql);
+				} catch (SQLException e) {
+					System.out.println("Error deleting the movie : "+ sql+" "+ e.getMessage());
+				
+					exitConnection(st);
+					return true;
+				}
+				exitConnection(st);
+				if(cpt == 0){
+					System.out.println("Ok ");
+					return true;
+				}
+				else {
+					System.out.println("KO ");
+					return false;
+				}
+		}
+		else return false;
+
+	}
+	
 	
 }

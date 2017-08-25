@@ -206,6 +206,27 @@ public class SessionDAO {
 				}
 		}
 
+	public boolean deleteSessions(String id){
+		Statement st = getConnection();
+		String sql = "Delete from session WHERE MovieID = '"+id+"'";
+			int cpt; 
+			try {
+				cpt = st.executeUpdate(sql);
+			} catch (SQLException e) {
+				System.out.println("Error deleting the session : "+ sql+" "+ e.getMessage());
+				exitConnection(st);
+				return true;
+			}
+			exitConnection(st);
+			if(cpt == 0){
+				System.out.println("Ok");
+				return true;
+			}
+			else {
+				System.out.println("KO ");
+				return false;
+			}
+	}
 	
 	public HttpServletRequest getRequest() {
 		return request;
